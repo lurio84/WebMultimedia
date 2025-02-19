@@ -2,20 +2,25 @@
 
 ## Description
 
+[Provide a brief description of the project, its purpose, and what it aims to achieve.]
+
 ## Main Features
+
+[List the key features of the project, such as functionalities, tools, or capabilities.]
 
 ## Technologies Used
 
-- **Frontend**: Vite + React
-- **Backend**: Spring
-- **Database**: MariaDB
+- **Frontend**: [Specify the frontend technology stack]
+- **Backend**: [Specify the backend technology stack]
+- **Database**: [Specify the database technology]
 
 ## Installation and Execution
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/lurio84/WebMultimedia
+   git clone [repository URL]
    ```
+2. [Add additional setup steps, such as dependencies installation, environment configuration, and execution commands.]
 
 ## Contributions
 
@@ -23,8 +28,8 @@ Contributions are welcome. Please open an issue or submit a pull request to disc
 
 ## License
 
-This project is licensed under the MIT License. See the `LICENSE` file for more details.
+This project is licensed under the [Specify License Type] License. See the `LICENSE` file for more details.
 
 ## Contact
 
-For any inquiries, you can contact lucas.ronquillo@gmail.com.
+For any inquiries, you can contact [Your Email or Contact Information].
