@@ -6,7 +6,7 @@ function App() {
   return (
     <div>
       <nav>
-        <Link to="/">Inicio</Link> |<Link to="/user/20">Ver Usuario 1</Link>
+        <Link to="/">Inicio</Link> | <Link to="/user/1">Ver Usuario 1</Link>
       </nav>
 
       <Routes>
