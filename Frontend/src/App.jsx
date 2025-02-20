@@ -5,7 +5,7 @@ import { useState } from "react";
 import AuthPage from "./pages/AuthPage";
 
 function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(true);
 
   return (
     <div>

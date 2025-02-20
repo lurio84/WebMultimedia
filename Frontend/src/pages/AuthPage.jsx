@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./AuthPage.css";
 
-function AuthPage({ onAuthSuccess }) {
+function AuthPage() {
   const [isRegister, setIsRegister] = useState(false);
 
   return (
