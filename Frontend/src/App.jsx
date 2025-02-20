@@ -14,11 +14,11 @@ function App() {
       ) : (
         <>
           <nav>
-            <Link to="/">Inicio</Link> | <Link to="/user/1">Ver Usuario 1</Link>
+            <Link to="/">Start</Link> | <Link to="/user/1">See user 1</Link>
           </nav>
 
           <Routes>
-            <Route path="/" element={<h1>Bienvenido</h1>} />
+            <Route path="/" element={<h1>Welcome</h1>} />
             <Route path="/user/:id" element={<UserPage />} />
           </Routes>
         </>
