@@ -5,14 +5,14 @@ import { useState } from "react";
 import AuthPage from "./pages/AuthPage";
 
 function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(true);
 
   return (
     <div>
       {!isAuthenticated ? (
         <AuthPage onAuthSuccess={() => setIsAuthenticated(true)} />
       ) : (
-        <>
+        <div className="app-container">
           <nav>
             <Link to="/">Start</Link> | <Link to="/user/1">See user 1</Link>
           </nav>
@@ -21,7 +21,7 @@ function App() {
             <Route path="/" element={<h1>Welcome</h1>} />
             <Route path="/user/:id" element={<UserPage />} />
           </Routes>
-        </>
+        </div>
       )}
     </div>
   );

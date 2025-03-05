@@ -12,7 +12,7 @@ function AuthPage() {
           {isRegister && <input type="text" placeholder="Name" required />}
           <input type="email" placeholder="Email" required />
           <input type="password" placeholder="Password" required />
-          <button type="submit">{isRegister ? "Rergister" : "Login"}</button>
+          <button type="submit">{isRegister ? "Register" : "Login"}</button>
         </form>
         <p onClick={() => setIsRegister(!isRegister)}>
           {isRegister
