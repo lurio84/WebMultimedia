@@ -17,7 +17,7 @@ import com.miapp.backend.services.UserService;
 @RestController
 @RequestMapping("/users")
 public class UserController {
-    
+
     @Autowired
     private UserService userService;
 
@@ -28,7 +28,7 @@ public class UserController {
 
     @PostMapping
     public User createUser(@RequestBody User user) {
-        return userService.saveUser(user);
+        return userService.createUser(user);
     }
 
     @DeleteMapping("/{username}")

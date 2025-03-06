@@ -18,12 +18,12 @@ public class UserService {
         return Optional.ofNullable(userRepository.findByUsername(username));
     }
 
-    public User saveUser(User user) {
+    public User createUser(User user) {
         return userRepository.save(user);
     }
 
     public void deleteUser(User user) {
         userRepository.delete(user);
     }
-    
+
 }
