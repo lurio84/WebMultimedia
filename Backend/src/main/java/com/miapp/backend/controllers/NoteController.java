@@ -27,9 +27,9 @@ public class NoteController {
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    @PostMapping()
-    public ResponseEntity<Note> createNote(@RequestBody Note note) {
-        return ResponseEntity.ok(noteService.createNote(note));
+    @PostMapping("/user/{userId}")
+    public ResponseEntity<Note> createNote(@PathVariable Long userId, @RequestBody Note note) {
+        return ResponseEntity.ok(noteService.createNoteWithUserId(userId, note));
     }
 
     @DeleteMapping("/{id}")
