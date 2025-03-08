@@ -3,9 +3,17 @@ import { Routes, Route, Link } from "react-router-dom";
 import UserPage from "./pages/UserPage";
 import { useState } from "react";
 import AuthPage from "./pages/AuthPage";
+import { logoutUser } from "./services/authService";
 
 function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(
+    localStorage.getItem("user") !== null
+  );
+
+  const handleLogout = () => {
+    logoutUser();
+    setIsAuthenticated(false);
+  };
 
   return (
     <div>
@@ -14,7 +22,8 @@ function App() {
       ) : (
         <div className="app-container">
           <nav>
-            <Link to="/">Start</Link> | <Link to="/user/1">See user 1</Link>
+            <Link to="/">Start</Link> | <Link to="/user/1">See user 1</Link> |
+            <button onClick={handleLogout}>Logout</button>
           </nav>
 
           <Routes>
