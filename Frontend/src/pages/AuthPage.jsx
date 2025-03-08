@@ -9,9 +9,11 @@ function AuthPage() {
       <div className="auth-box">
         <h2>{isRegister ? "Register" : "Login"}</h2>
         <form>
-          {isRegister && <input type="text" placeholder="Name" required />}
-          <input type="email" placeholder="Email" required />
+          <input type="username" placeholder="Username" required />
           <input type="password" placeholder="Password" required />
+          {isRegister && (
+            <input type="password" placeholder="Repeat password" required />
+          )}
           <button type="submit">{isRegister ? "Register" : "Login"}</button>
         </form>
         <p onClick={() => setIsRegister(!isRegister)}>
