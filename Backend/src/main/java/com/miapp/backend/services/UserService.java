@@ -26,4 +26,28 @@ public class UserService {
         userRepository.deleteById(id);
     }
 
+    public User registerUser(User user) {
+        if (userRepository.existsByUsername(user.getUsername())) {
+            throw new RuntimeException("Username already taken");
+        }
+        // No se encripta la contraseña (Solo para pruebas en desarrollo)
+        return userRepository.save(user);
+    }
+
+    public User validateUser(String username, String password) {
+        Optional<User> userOpt = userRepository.findByUsername(username);
+        if (userOpt.isPresent()) {
+            User user = userOpt.get();
+            // Compara la contraseña en texto plano (No seguro para producción)
+            if (user.getPassword().equals(password)) {
+                return user;
+            }
+        }
+        return null;
+    }
+
+    public boolean existsByUsername(String username) {
+        return userRepository.existsByUsername(username);
+    }
+
 }

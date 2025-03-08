@@ -28,7 +28,7 @@ public class NoteController {
     }
 
     @PostMapping("/user/{userId}")
-    public ResponseEntity<Note> createNote(@PathVariable Long userId, @RequestBody Note note) {
+    public ResponseEntity<Note> createNoteWithUserId(@PathVariable Long userId, @RequestBody Note note) {
         return ResponseEntity.ok(noteService.createNoteWithUserId(userId, note));
     }
 
