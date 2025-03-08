@@ -29,9 +29,9 @@ public class Note {
     @Column(nullable = false)
     private String title;
 
-    @Schema(hidden = true)
+    @Schema(example = "Test Content")
     @Column(nullable = false)
-    private String content = "";
+    private String content;
 
     @JsonBackReference
     @Schema(hidden = true)
