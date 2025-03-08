@@ -14,16 +14,16 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    public Optional<User> findByUsername(String username) {
-        return Optional.ofNullable(userRepository.findByUsername(username));
+    public Optional<User> findUserById(Long id) {
+        return userRepository.findById(id);
     }
 
     public User createUser(User user) {
         return userRepository.save(user);
     }
 
-    public void deleteUser(User user) {
-        userRepository.delete(user);
+    public void deleteUserById(Long id) {
+        userRepository.deleteById(id);
     }
 
 }
