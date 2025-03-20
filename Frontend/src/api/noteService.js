@@ -9,3 +9,13 @@ export const getNotesByUserId = async (userId) => {
         throw error;
     }
 }
+
+export const createNoteWithUserId = async (userId, note) => {
+    try {
+        const response = await apiClient.post(`/notes/user/${userId}`, note);
+        return response.data;
+    } catch (error) {
+        console.error("Error creando nota", error);
+        throw error;
+    }
+}

@@ -1,3 +1,4 @@
+import CreateNote from "../components/CreateNote";
 import UserDetail from "../components/UserDetail";
 import UserNotes from "../components/UserNotes";
 import PropTypes from "prop-types";
@@ -7,6 +8,7 @@ function UserPage({ userId }) {
     <div>
       <h1>Información del Usuario</h1>
       <UserDetail userId={userId} />
+      <CreateNote userId={userId} />
       <UserNotes userId={userId} />
     </div>
   );

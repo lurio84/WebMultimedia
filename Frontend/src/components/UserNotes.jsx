@@ -33,7 +33,7 @@ function UserNotes({ userId }) {
       <p>
         <strong>Notas:</strong>{" "}
         {notes.map((note) => (
-          <p key={note.id}>{note.content}</p>
+          <p key={note.id}>{note.title}</p>
         ))}
       </p>
     </div>
