@@ -6,9 +6,9 @@ import AuthPage from "./pages/AuthPage";
 import { logoutUser } from "./services/authService";
 
 function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(
-    localStorage.getItem("user") !== null
-  );
+  const storedUser = JSON.parse(localStorage.getItem("user"));
+  const [isAuthenticated, setIsAuthenticated] = useState(storedUser !== null);
+  const userId = storedUser?.id;
 
   const handleLogout = () => {
     logoutUser();
@@ -22,13 +22,14 @@ function App() {
       ) : (
         <div className="app-container">
           <nav>
-            <Link to="/">Start</Link> | <Link to="/user/1">See user 1</Link> |
+            <Link to="/">Start</Link> |{" "}
+            <Link to={`/user/${userId}`}>See my profile</Link> |
             <button onClick={handleLogout}>Logout</button>
           </nav>
 
           <Routes>
             <Route path="/" element={<h1>Welcome</h1>} />
-            <Route path="/user/:id" element={<UserPage />} />
+            <Route path="/user/:id" element={<UserPage userId={userId} />} />
           </Routes>
         </div>
       )}
