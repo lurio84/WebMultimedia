@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { loginUser, registerUser } from "../services/authService";
 import PropTypes from "prop-types";
+import { useNavigate } from "react-router-dom";
 import "./AuthPage.css";
 
 function AuthPage({ onAuthSuccess }) {
@@ -8,6 +9,8 @@ function AuthPage({ onAuthSuccess }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -20,6 +23,7 @@ function AuthPage({ onAuthSuccess }) {
 
       localStorage.setItem("user", JSON.stringify(user)); // Guardar sesión
       onAuthSuccess();
+      navigate(`/user/${user.id}`);
     } catch (err) {
       setError(err.message);
     }
