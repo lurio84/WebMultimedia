@@ -39,6 +39,7 @@ function UserNotes({ userId }) {
     </div>
   );
 }
+
 UserNotes.propTypes = {
   userId: PropTypes.string.isRequired,
 };

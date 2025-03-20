@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
 import { getUserById } from "../api/userService";
+import PropTypes from "prop-types";
 
-function UserDetail() {
-  const { id } = useParams();
+function UserDetail({ userId }) {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -11,7 +10,7 @@ function UserDetail() {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const data = await getUserById(id);
+        const data = await getUserById(userId);
         setUser(data);
         setError(null);
       } catch (err) {
@@ -23,7 +22,7 @@ function UserDetail() {
     };
 
     fetchUser();
-  }, [id]);
+  }, [userId]);
 
   if (loading) return <p>Cargando...</p>;
   if (error) return <p>{error}</p>;
@@ -37,5 +36,9 @@ function UserDetail() {
     </div>
   );
 }
+
+UserDetail.propTypes = {
+  userId: PropTypes.string.isRequired,
+};
 
 export default UserDetail;
