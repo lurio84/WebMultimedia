@@ -1,5 +1,6 @@
 package com.miapp.backend.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,5 +33,9 @@ public class NoteService {
 
     public void deleteNoteById(Long id) {
         noteRepository.deleteById(id);
+    }
+
+    public List<Note> findNotesByUserId(Long userId) {
+        return noteRepository.findByUserId(userId);
     }
 }

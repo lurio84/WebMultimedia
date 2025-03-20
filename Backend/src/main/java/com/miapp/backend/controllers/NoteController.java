@@ -1,5 +1,7 @@
 package com.miapp.backend.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -36,5 +38,10 @@ public class NoteController {
     public ResponseEntity<Void> deleteNoteById(@PathVariable Long id) {
         noteService.deleteNoteById(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/user/{userId}")
+    public ResponseEntity<List<Note>> getNotesByUserId(@PathVariable Long userId) {
+        return ResponseEntity.ok(noteService.findNotesByUserId(userId));
     }
 }
