@@ -6,12 +6,10 @@ import "./CreateNote.css";
 function CreateNote({ userId, setIsModalOpen }) {
   const [newNote, setNewNote] = useState("");
   const [creating, setCreating] = useState(false);
-  const [error, setError] = useState(null);
 
   const handleCreateNote = async () => {
     if (!newNote.trim()) return;
     setCreating(true);
-    setError(null);
 
     try {
       await createNoteWithUserId(userId, { title: newNote, content: "" });
@@ -19,7 +17,6 @@ function CreateNote({ userId, setIsModalOpen }) {
       setIsModalOpen(false); // Cierra el modal después de crear la nota
     } catch (err) {
       console.error("Error creando la nota:", err);
-      setError(`Error creando la nota: ${err.message}`);
     } finally {
       setCreating(false);
     }
@@ -28,17 +25,16 @@ function CreateNote({ userId, setIsModalOpen }) {
   return (
     <div className="modal-overlay">
       <div className="modal">
-        <h3>Crear Nueva Nota</h3>
-        {error && <p style={{ color: "red" }}>{error}</p>}
+        <h3>Create New Note</h3>
         <input
           type="text"
           value={newNote}
           onChange={(e) => setNewNote(e.target.value)}
-          placeholder="Título de la nota..."
+          placeholder="Note title..."
         />
         <div className="modal-buttons">
           <button onClick={handleCreateNote} disabled={creating}>
-            {creating ? "Creando..." : "Crear"}
+            {creating ? "Creating..." : "Create"}
           </button>
           <button onClick={() => setIsModalOpen(false)}>Cancelar</button>
         </div>

@@ -5,6 +5,8 @@
   align-items: center;
   text-align: center;
   width: 100vw;
+  height: 100vh;
+  position: relative;
 }
 
 .app-header {
@@ -20,4 +22,20 @@
   padding: 10px;
   text-align: center;
   margin-top: auto;
+}
+
+.logout-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 8px 16px;
+  background-color: #e74d3ce0;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.logout-button:hover {
+  background-color: #c0392b;
 }

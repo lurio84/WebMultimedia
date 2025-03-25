@@ -20,7 +20,9 @@ function App() {
         <AuthPage onAuthSuccess={() => setIsAuthenticated(true)} />
       ) : (
         <div className="app-container">
-          <button onClick={handleLogout}>Logout</button>
+          <button className="logout-button" onClick={handleLogout}>
+            Logout
+          </button>
           <UserPage userId={userId} />
         </div>
       )}
