@@ -1,20 +1,29 @@
 import { useState } from "react";
 import { createNoteWithUserId } from "../api/noteService";
 import PropTypes from "prop-types";
+import { useNavigate } from "react-router-dom";
 import "./CreateNote.css";
 
 function CreateNote({ userId, setIsModalOpen }) {
-  const [newNote, setNewNote] = useState("");
+  const [noteTitle, setNoteTitle] = useState("");
   const [creating, setCreating] = useState(false);
+  const navigate = useNavigate();
 
   const handleCreateNote = async () => {
-    if (!newNote.trim()) return;
+    if (!noteTitle.trim()) return;
     setCreating(true);
 
     try {
-      await createNoteWithUserId(userId, { title: newNote, content: "" });
-      setNewNote("");
-      setIsModalOpen(false); // Cierra el modal después de crear la nota
+      const createdNote = await createNoteWithUserId(userId, {
+        title: noteTitle,
+        content: "",
+      });
+
+      setNoteTitle("");
+      setIsModalOpen(false); // Opcional, ya que vas a redirigir
+
+      // Redirige a la vista de edición
+      navigate(`/note/${createdNote.id}`);
     } catch (err) {
       console.error("Error creando la nota:", err);
     } finally {
@@ -28,8 +37,8 @@ function CreateNote({ userId, setIsModalOpen }) {
         <h3>Create New Note</h3>
         <input
           type="text"
-          value={newNote}
-          onChange={(e) => setNewNote(e.target.value)}
+          value={noteTitle}
+          onChange={(e) => setNoteTitle(e.target.value)}
           placeholder="Note title..."
         />
         <div className="modal-buttons">
