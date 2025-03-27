@@ -38,4 +38,12 @@ public class NoteService {
     public List<Note> findNotesByUserId(Long userId) {
         return noteRepository.findByUserId(userId);
     }
+
+    public Note updateNoteById(Long id, Note note) {
+        Note noteToUpdate = noteRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Note not found"));
+        noteToUpdate.setTitle(note.getTitle());
+        noteToUpdate.setContent(note.getContent());
+        return noteRepository.save(noteToUpdate);
+    }
 }

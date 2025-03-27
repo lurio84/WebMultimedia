@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.miapp.backend.models.Note;
 import com.miapp.backend.services.NoteService;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
@@ -29,6 +30,10 @@ public class NoteController {
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<Note> updateNoteById(@PathVariable Long id, @RequestBody Note note) {
+        return ResponseEntity.ok(noteService.updateNoteById(id, note));
+    }
     @PostMapping("/user/{userId}")
     public ResponseEntity<Note> createNoteWithUserId(@PathVariable Long userId, @RequestBody Note note) {
         return ResponseEntity.ok(noteService.createNoteWithUserId(userId, note));
