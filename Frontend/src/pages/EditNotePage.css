@@ -29,18 +29,23 @@
   min-height: 300px;
 }
 
-.edit-note-page button {
-  align-self: flex-end;
+.edit-note-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.action-button {
   padding: 0.6rem 1.2rem;
   font-size: 1rem;
-  background-color: #4a90e2;
-  color: white;
   border: none;
   border-radius: 8px;
   cursor: pointer;
+  background-color: #4a90e2;
+  color: white;
   transition: background-color 0.2s ease;
 }
 
-.edit-note-page button:hover {
+.action-button:hover {
   background-color: #357bd8;
 }
