@@ -78,6 +78,10 @@
   text-align: left;
 }
 
+.note-card:hover {
+  background-color: #262626;
+}
+
 .user-header h3 {
   margin: 0;
 }

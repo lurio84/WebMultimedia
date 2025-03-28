@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getNoteById, updateNoteById } from "../api/noteService";
+import "./EditNotePage.css";
 
 function EditNotePage() {
   const { noteId } = useParams();

@@ -4,12 +4,14 @@ import PropTypes from "prop-types";
 import { useEffect } from "react";
 import { getUserById } from "../api/userService";
 import { getNotesByUserId } from "../api/noteService";
+import { useNavigate } from "react-router-dom";
 import "./UserPage.css";
 
 function UserPage({ userId }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [user, setUser] = useState(null);
   const [notes, setNotes] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -47,7 +49,12 @@ function UserPage({ userId }) {
       {/* Notas al centro */}
       <main className="user-main">
         {notes.map((note) => (
-          <div className="note-card" key={note.id}>
+          <div
+            className="note-card"
+            key={note.id}
+            onClick={() => navigate(`/note/${note.id}`)}
+            style={{ cursor: "pointer" }}
+          >
             <h3>{note.title}</h3>
             <p>{note.content}</p>
           </div>

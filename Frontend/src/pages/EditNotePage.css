@@ -1,0 +1,46 @@
+.edit-note-page {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  min-width: 50%;
+  margin: 0 auto;
+  height: 100vh;
+  box-sizing: border-box;
+  gap: 1rem;
+}
+
+.edit-note-page input[name="title"] {
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+}
+
+.edit-note-page textarea[name="content"] {
+  flex: 1;
+  resize: none;
+  font-size: 1rem;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  min-height: 300px;
+}
+
+.edit-note-page button {
+  align-self: flex-end;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.edit-note-page button:hover {
+  background-color: #357bd8;
+}
