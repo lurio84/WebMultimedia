@@ -26,13 +26,18 @@ function App() {
 
   return (
     <div className="app-container">
-      {isAuthenticated && (
-        <button className="logout-button" onClick={handleLogout}>
-          Logout
-        </button>
-      )}
-
       <Routes>
+        <Route
+          path="/user/:id"
+          element={
+            isAuthenticated ? (
+              <UserPage userId={userId} handleLogout={handleLogout} />
+            ) : (
+              <Navigate to="/home" />
+            )
+          }
+        />
+
         <Route
           path="/"
           element={

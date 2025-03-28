@@ -1,17 +1,39 @@
 .user-page {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 20px;
+  min-height: 100vh; /* 🔥 Esto es lo más importante */
+  justify-content: flex-start; /* 🔼 Asegura que el contenido empiece arriba */
   padding: 20px;
+  box-sizing: border-box;
 }
 
 .user-header {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  padding: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.username {
   font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.logout-button {
+  background-color: #e74d3ce0;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.logout-button:hover {
+  background-color: #c0392b;
 }
 
 .user-main {
@@ -20,7 +42,7 @@
   justify-content: center;
   align-items: flex-start;
   gap: 20px;
-  margin-top: 80px;
+  margin-top: 40px;
   padding: 20px;
 }
 
@@ -31,6 +53,9 @@
   border-radius: 8px;
   width: 250px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  word-wrap: break-word; /* Fuerza el salto de palabra */
+  overflow-wrap: break-word; /* Compatibilidad moderna */
+  white-space: normal; /* Permite saltos de línea */
 }
 
 /* Botón flotante abajo a la derecha */
@@ -53,6 +78,7 @@
   cursor: pointer;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   z-index: 1000;
+  opacity: 0.8;
 }
 
 .create-note-fab:hover {
@@ -82,6 +108,10 @@
   background-color: #262626;
 }
 
-.user-header h3 {
-  margin: 0;
+.no-notes {
+  text-align: center;
+  color: #aaa;
+  font-size: 1.2rem;
+  margin-top: 2rem;
+  width: 100%;
 }

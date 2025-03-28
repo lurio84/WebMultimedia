@@ -7,7 +7,7 @@ import { getNotesByUserId } from "../api/noteService";
 import { useNavigate } from "react-router-dom";
 import "./UserPage.css";
 
-function UserPage({ userId }) {
+function UserPage({ userId, handleLogout }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [user, setUser] = useState(null);
   const [notes, setNotes] = useState([]);
@@ -43,22 +43,31 @@ function UserPage({ userId }) {
     <div className="user-page">
       {/* Nombre del usuario arriba a la izquierda */}
       <header className="user-header">
-        {user ? <h3>{user.username}</h3> : <h3>Loading username...</h3>}
+        <span className="username">{user ? user.username : "Cargando..."}</span>
+        <button className="logout-button" onClick={handleLogout}>
+          Logout
+        </button>
       </header>
 
       {/* Notas al centro */}
       <main className="user-main">
-        {notes.map((note) => (
-          <div
-            className="note-card"
-            key={note.id}
-            onClick={() => navigate(`/note/${note.id}`)}
-            style={{ cursor: "pointer" }}
-          >
-            <h3>{note.title}</h3>
-            <p>{note.content}</p>
+        {notes.length === 0 ? (
+          <div className="no-notes">
+            You do not have any notes yet. Create a new one using the button ➕
           </div>
-        ))}
+        ) : (
+          notes.map((note) => (
+            <div
+              className="note-card"
+              key={note.id}
+              onClick={() => navigate(`/note/${note.id}`)}
+              style={{ cursor: "pointer" }}
+            >
+              <h3>{note.title}</h3>
+              <p>{note.content}</p>
+            </div>
+          ))
+        )}
       </main>
 
       {/* Botón flotante abajo a la derecha */}
@@ -80,6 +89,7 @@ function UserPage({ userId }) {
 
 UserPage.propTypes = {
   userId: PropTypes.string.isRequired,
+  handleLogout: PropTypes.func.isRequired,
 };
 
 export default UserPage;
