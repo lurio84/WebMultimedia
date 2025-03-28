@@ -30,7 +30,7 @@ public class Note {
     private String title;
 
     @Schema(example = "Test Content")
-    @Column(nullable = false)
+    @Column(nullable = false, columnDefinition = "LONGTEXT")
     private String content;
 
     @JsonBackReference
