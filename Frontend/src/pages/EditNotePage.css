@@ -11,7 +11,6 @@
   overflow-x: hidden;
 }
 
-
 .edit-note-page input[name="title"] {
   font-size: 1.5rem;
   font-weight: bold;
@@ -35,7 +34,6 @@
 .edit-note-buttons {
   display: flex;
   justify-content: space-between;
-  margin-top: 1rem;
 }
 
 .action-button {
