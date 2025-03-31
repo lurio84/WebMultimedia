@@ -1,7 +1,8 @@
 .user-page {
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* 🔥 Esto es lo más importante */
+  height: 100vh; /* 🔥 Esto es lo más importante */
+  width: 100vw;
   justify-content: flex-start; /* 🔼 Asegura que el contenido empiece arriba */
   padding: 20px;
   box-sizing: border-box;
@@ -47,15 +48,14 @@
 }
 
 /* Cada nota como una card */
-.note-card {
-  background-color: #2c2c2c;
-  padding: 16px;
-  border-radius: 8px;
-  width: 250px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  word-wrap: break-word; /* Fuerza el salto de palabra */
-  overflow-wrap: break-word; /* Compatibilidad moderna */
-  white-space: normal; /* Permite saltos de línea */
+.note-card p {
+  max-height: 4.5em; /* Aproximadamente 3 líneas */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* Número de líneas mostradas */
+  line-clamp: 3; /* Standard property for compatibility */
+  -webkit-box-orient: vertical;
 }
 
 /* Botón flotante abajo a la derecha */

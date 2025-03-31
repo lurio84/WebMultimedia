@@ -14,14 +14,15 @@
 
 /* Caja blanca del modal */
 .modal {
-  background-color: #1e1e1e; /* Fondo oscuro elegante */
-  padding: 30px;
+  background-color: #1e1e1e;
+  padding: 30px 20px; /* Añade padding horizontal */
   border-radius: 15px;
   box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
-  width: 350px;
-  max-width: 90%;
+  width: 100%;
+  max-width: 350px; /* Cambia este valor si quieres que sea más flexible */
   text-align: center;
   color: white;
+  box-sizing: border-box;
 }
 
 /* Campo de entrada */

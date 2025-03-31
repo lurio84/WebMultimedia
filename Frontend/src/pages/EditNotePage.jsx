@@ -23,10 +23,10 @@ function EditNotePage() {
 
   const handleSave = async () => {
     await updateNoteById(noteId, note);
-    alert("Nota actualizada");
+    navigate(`/user/${note.userId}`);
   };
 
-  if (!note) return <p>Cargando...</p>;
+  if (!note) return <p>Loading...</p>;
 
   return (
     <div className="edit-note-page">
@@ -42,10 +42,10 @@ function EditNotePage() {
           className="action-button"
           onClick={() => navigate(`/user/${note.userId}`)}
         >
-          ← Volver
+          Return
         </button>
         <button className="action-button" onClick={handleSave}>
-          Guardar
+          Save
         </button>
       </div>
     </div>

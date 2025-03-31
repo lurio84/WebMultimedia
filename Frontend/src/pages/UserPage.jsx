@@ -53,7 +53,8 @@ function UserPage({ userId, handleLogout }) {
       <main className="user-main">
         {notes.length === 0 ? (
           <div className="no-notes">
-            You do not have any notes yet. Create a new one using the button ➕
+            You do not have any notes yet. Create a new one using the button at
+            the bottom right corner
           </div>
         ) : (
           notes.map((note) => (
