@@ -45,7 +45,7 @@ function CreateNote({ userId, setIsModalOpen }) {
           <button onClick={handleCreateNote} disabled={creating}>
             {creating ? "Creating..." : "Create"}
           </button>
-          <button onClick={() => setIsModalOpen(false)}>Cancelar</button>
+          <button onClick={() => setIsModalOpen(false)}>Cancel</button>
         </div>
       </div>
     </div>
